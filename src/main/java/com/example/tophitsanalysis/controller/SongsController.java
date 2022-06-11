@@ -27,11 +27,15 @@ public class SongsController {
     @GetMapping(params = {"colname", "year"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getDeciles(@RequestParam String colname, @RequestParam String year) throws FileNotFoundException, NoSuchMethodException {
         List<Song> songs = songsGenerator.get(year);
-        Range<Integer> range = Range.open(1998, 2020);
-        if (colnameChecker.checkIfColnameAllowedReturnTrue(colname) && range.contains(Integer.parseInt(year))) {
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getDeciles(songs, colname, year));
+        Range<Integer> range = Range.closed(1999, 2019);
+        if (range.contains(Integer.parseInt(year))) {
+            if (colnameChecker.checkIfColnameAllowedReturnTrue(colname) && range.contains(Integer.parseInt(year))) {
+                return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getDeciles(songs, colname, year));
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Provide valid colname: duration_ms, year, popularity, danceability, energy, key");
+            }
         } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Provide valid colname: duration_ms, year, popularity, danceability, energy, key");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Year must be in range 1999..2019 inclusive");
         }
     }
 
