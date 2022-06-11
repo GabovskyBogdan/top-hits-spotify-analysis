@@ -1,5 +1,5 @@
 # top-hits-spotify-analysis
-Application to get and process some statistics on most popular songs in Spotify of the last two deacades (1998-2020).
+Application to get and process some statistics on most popular songs in Spotify of the last two deacades (1999-2019).
 
 
 ## Table of contents
