@@ -10,7 +10,7 @@ Application to get and process some statistics on most popular songs in Spotify 
 
 The main task was to creat SpringBoot Application that takes data from songs_normalize.csv (https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019) and makes some statistics analysis, requested by HTTP.
 
-### There is two GET method:
+### There is two GET methods:
 
 #### First takes "colname": 
 *put your value for "colname" without bracers*
