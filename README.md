@@ -32,7 +32,7 @@ and returns JSON array of ten deciles (https://en.wikipedia.org/wiki/Decile) for
 ```
 curl --location --request GET 'http://localhost:8080/?colname="colname"$year="year"'
 ```
-and returns same array but for exact year that was provided.
+and returns same array but for exact year.
 
 ## Technologies
 Project is created with:
